@@ -1,0 +1,1 @@
+export const ITEMs_PER_PAGE = 15;
