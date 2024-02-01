@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteItemFromCartAsync, selectCartLoaded, selectCartStatus, selectItems, updateCartAsync, } from './cartSlice';
+import { deleteItemFromCartAsync, fetchItemsByUserIdAsync, selectCartLoaded, selectCartStatus, selectItems, updateCartAsync, } from './cartSlice';
 import { Link, Navigate } from 'react-router-dom';
 import { RotatingLines } from 'react-loader-spinner';
 import Modal from '../common/Modal';
@@ -25,6 +25,10 @@ export default function Cart() {
   const handleRemove = (e, id) => {
     dispatch(deleteItemFromCartAsync(id))
   }
+
+  useEffect(() => {
+    dispatch(fetchItemsByUserIdAsync())
+  }, [dispatch])
 
 
   return (

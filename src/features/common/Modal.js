@@ -29,7 +29,7 @@ export default function Modal({ title, message, action, cancelOption, dangerActi
 
     return (
         <Transition.Root show={open} as={Fragment}>
-            <Dialog as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={setOpen}>
+            <Dialog as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={handleCancel}>
                 <Transition.Child
                     as={Fragment}
                     enter="ease-out duration-300"
