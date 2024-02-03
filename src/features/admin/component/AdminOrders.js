@@ -75,14 +75,14 @@ const AdminOrders = () => {
               <table className=" w-full table-auto">
                 <thead>
                   <tr className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-                    <th className="py-3 px-4 cursor-pointer text-left"
+                    <th className="py-3 px-4 cursor-pointer text-center"
                       onClick={(e) => { handleSort({ sort: 'id', order: sort?._order === 'desc' ? 'asc' : 'desc' }) }} >
-                      Order No.{' '}
+                      Order Id.{' '}
                       {sort._sort === 'id' && (sort._order === 'asc' ? <ArrowDownIcon className='w=4 h-4 inline ' />
                         : <ArrowUpIcon className='w=4 h-4 inline' />)}
                     </th>
-                    <th className="py-3 px-2 text-left">Items</th>
-                    <th className="py-3 px-2 cursor-pointer text-left"
+                    <th className="py-3 px-2 text-center">Items</th>
+                    <th className="py-3 px-2 cursor-pointer text-center"
                       onClick={(e) => { handleSort({ sort: 'totalAmount', order: sort?._order === 'asc' ? 'desc' : 'asc' }) }} >
                       Total Amount{' '}
                       {sort._sort === 'totalAmount' && (sort._order === 'asc' ? <ArrowDownIcon className='w=4 h-4 inline ' />
@@ -92,13 +92,13 @@ const AdminOrders = () => {
                     <th className="py-3 px-2 text-center">Order Status</th>
                     <th className="py-3 px-2 text-center">Payment</th>
                     <th className="py-3 px-2 text-center">Payment Status</th>
-                    <th className="py-3 px-2 cursor-pointer text-left"
+                    <th className="py-3 px-2 cursor-pointer text-center"
                       onClick={(e) => { handleSort({ sort: 'createdAt', order: sort?._order === 'asc' ? 'desc' : 'asc' }) }} >
                       Order Time{' '}
                       {sort._sort === 'createdAt' && (sort._order === 'asc' ? <ArrowDownIcon className='w=4 h-4 inline ' />
                         : <ArrowUpIcon className='w=4 h-4 inline' />)}
                     </th>
-                    <th className="py-3 px-2 cursor-pointer text-left"
+                    <th className="py-3 px-2 cursor-pointer text-center"
                       onClick={(e) => { handleSort({ sort: 'updatedAt', order: sort?._order === 'asc' ? 'desc' : 'asc' }) }} >
                       Last Updated{' '}
                       {sort._sort === 'updatedAt' && (sort._order === 'asc' ? <ArrowDownIcon className='w=4 h-4 inline ' />
@@ -109,12 +109,12 @@ const AdminOrders = () => {
                 </thead>
                 <tbody className="text-gray-600 text-sm font-light">
                   {orders.map((order) => <tr key={order.id} className="border-b border-gray-200 hover:bg-gray-100">
-                    <td className="py-3 px-2 text-left whitespace-nowrap">
+                    <td className="py-3 px-2 text-center whitespace-nowrap">
                       <div className="flex items-center">
                         <span className="font-medium"> {order.id}. </span>
                       </div>
                     </td>
-                    <td className="py-3 px-2 font-normal text-left">
+                    <td className="py-3 px-2 font-normal text-center">
                       {order.items.map((item, index) => (<div key={index} className="flex items-center">
                         <div className="mr-2">
                           <img
@@ -142,7 +142,7 @@ const AdminOrders = () => {
                     </td>
                     <td className="py-3 px-2 text-center">
                       {order.id === editableIOrderId ? (
-                        <select onChange={(e) => { handleOrderStatus(e, order) }} >
+                        <select onChange={(e) => { handleOrderStatus(e, order) }} value={order.status} >
                           <option value="pending">Pending</option>
                           <option value="dispatched">Dispatched</option>
                           <option value="delivered">Delivered</option>
@@ -159,7 +159,7 @@ const AdminOrders = () => {
                     </td>
                     <td className="py-3 px-2 text-center">
                       {order.id === editableIOrderId ? (
-                        <select onChange={(e) => { handleOrderPaymentStatus(e, order) }} >
+                        <select onChange={(e) => { handleOrderPaymentStatus(e, order) }} value={order.paymentStatus} >
                           <option value="pending">Pending</option>
                           <option value="received">Received</option>
                         </select>) : (
@@ -179,9 +179,9 @@ const AdminOrders = () => {
                     </td>
                     <td className="py-3 px-5 text-center">
                       <div className="flex item-center justify-center">
-                        <div onClick={(e) => handleShow(order)} className="w-5 mr-2 cursor-pointer transform hover:text-purple-500 hover:scale-110">
+                        {/* <div onClick={(e) => handleShow(order)} className="w-5 mr-2 cursor-pointer transform hover:text-purple-500 hover:scale-110">
                           <EyeIcon />
-                        </div>
+                        </div> */}
                         <div onClick={(e) => handleEdit(order)} className="w-5 ml-2 mr-4 cursor-pointer transform hover:text-purple-500 hover:scale-110">
                           <PencilIcon />
                         </div>
