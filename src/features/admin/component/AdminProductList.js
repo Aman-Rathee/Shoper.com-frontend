@@ -438,12 +438,12 @@ function ProductGrid({ products }) {
                     </div>}
                   </div>
                   <div>
-                    <Link
-                      to={`/admin/product-form/edit/${product.id}`}
-                      className="rounded-md bg-themeBtnColor px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-themeBtnColorHover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">
-                      Edit Product</Link>
                   </div>
                 </Link>
+                <Link
+                  to={`/admin/product-form/edit/${product.id}`}
+                  className="rounded-md bg-themeBtnColor px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-themeBtnColorHover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">
+                  Edit Product</Link>
               </div>
 
             ))}
