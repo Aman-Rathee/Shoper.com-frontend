@@ -51,7 +51,7 @@ function Checkout() {
 
     return (
         <>
-            {!items.length > 0 && <Navigate to='/' replace={true} />}
+            {/* {!items.length > 0 && <Navigate to='/' replace={true} />} */}
             {currentOrder && currentOrder.paymentMethod === 'cash' && <Navigate to={`/order-success/${currentOrder.id}`} replace={true} />}
             {currentOrder && currentOrder.paymentMethod === 'card' && <Navigate to={`/stripe-checkout/`} replace={true} />}
             <div className='mx-auto mt-16 max-w-7xl px-4 sm:px-6 lg:px-8'>
@@ -211,7 +211,7 @@ function Checkout() {
                                         Choose existing addresses.
                                     </p>
                                     <ul className="divide-y divide-gray-100">
-                                        {user.addresses.map((address, index) => (
+                                        {user?.addresses.map((address, index) => (
                                             <li key={index} className="flex justify-between gap-x-6 p-5 ">
                                                 <div className="flex min-w-0 gap-x-4">
                                                     <input
